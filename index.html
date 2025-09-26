@@ -20,7 +20,6 @@
       text-align: center;
       padding: 50px 0;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-      position: relative;
     }
 
     header h1 {
@@ -31,15 +30,9 @@
     }
 
     #hero {
-      background: url('7160e3fe-0154-4e67-a555-edd63d265c2a.jpg') center/cover no-repeat;
+      background: url('https://github.com/ACZGARAGE/meus-produtos/raw/main/imagens/carro-dark.jpg') center/cover no-repeat;
       height: 450px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
       position: relative;
-      filter: brightness(0.6);
     }
 
     #hero::after {
@@ -48,14 +41,6 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.4);
-    }
-
-    #hero h2 {
-      position: relative;
-      font-size: 2.5rem;
-      z-index: 1;
-      text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
-      font-family: 'Playfair Display', serif;
     }
 
     #status {
@@ -83,7 +68,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
     }
 
     .product:hover {
@@ -96,6 +80,7 @@
       border-radius: 10px;
       margin-bottom: 20px;
       transition: transform 0.3s ease;
+      width: 100%;
     }
 
     .product img:hover {
@@ -137,9 +122,6 @@
       header h1 {
         font-size: 2.5rem;
       }
-      #hero h2 {
-        font-size: 1.8rem;
-      }
       #products-container {
         grid-template-columns: 1fr 1fr;
       }
@@ -148,9 +130,6 @@
     @media(max-width: 600px) {
       header h1 {
         font-size: 2rem;
-      }
-      #hero h2 {
-        font-size: 1.5rem;
       }
       #products-container {
         grid-template-columns: 1fr;
@@ -163,9 +142,7 @@
     <h1>Meus Produtos Afiliados</h1>
   </header>
 
-  <section id="hero">
-    <h2>Descubra produtos incríveis!</h2>
-  </section>
+  <section id="hero"></section>
 
   <div id="status">? Carregando produtos...</div>
   <div id="products-container"></div>
@@ -206,3 +183,4 @@
   </script>
 </body>
 </html>
+
