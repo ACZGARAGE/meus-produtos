@@ -1,0 +1,17 @@
+[
+  {
+    "nome": "Produto 1",
+    "descricao": "Descrição do produto 1. Um item incrível!",
+    "link": "https://www.seulinkdeafiliado.com/produto1"
+  },
+  {
+    "nome": "Produto 2",
+    "descricao": "Descrição do produto 2. Outro item top!",
+    "link": "https://www.seulinkdeafiliado.com/produto2"
+  },
+  {
+    "nome": "Produto 3",
+    "descricao": "Descrição do produto 3. Excelente oportunidade!",
+    "link": "https://www.seulinkdeafiliado.com/produto3"
+  }
+]
