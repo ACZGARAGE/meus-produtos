@@ -3,34 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meus Produtos</title>
+  <title>Meus Produtos Afiliados</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f7f8;
-      color: #333;
+      background: #0b0b0b;
+      color: #fff;
     }
 
     header {
       background: linear-gradient(90deg, #4b79a1, #283e51);
       color: #fff;
       text-align: center;
-      padding: 30px 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 40px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      position: relative;
     }
 
     header h1 {
       margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    #hero {
+      background: url('7160e3fe-0154-4e67-a555-edd63d265c2a.jpg') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    #hero h2 {
+      position: relative;
       font-size: 2rem;
+      z-index: 1;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
     }
 
     #status {
       text-align: center;
       margin: 20px;
       font-size: 1.2rem;
-      color: #555;
+      color: #aaa;
     }
 
     #products-container {
@@ -43,10 +71,10 @@
     }
 
     .product {
-      background: #fff;
+      background: #1a1a1a;
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
@@ -55,17 +83,17 @@
 
     .product:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
     }
 
     .product h3 {
       margin-top: 0;
-      color: #283e51;
+      color: #4b79a1;
     }
 
     .product p {
       flex: 1;
-      color: #555;
+      color: #ccc;
     }
 
     .product a {
@@ -87,6 +115,9 @@
 
     @media(max-width: 600px) {
       header h1 {
+        font-size: 1.8rem;
+      }
+      #hero h2 {
         font-size: 1.5rem;
       }
       #products-container {
@@ -97,8 +128,12 @@
 </head>
 <body>
   <header>
-    <h1>Meus Produtos</h1>
+    <h1>Meus Produtos Afiliados</h1>
   </header>
+
+  <section id="hero">
+    <h2>Descubra produtos incríveis!</h2>
+  </section>
 
   <div id="status">⏳ Carregando produtos...</div>
   <div id="products-container"></div>
@@ -139,6 +174,7 @@
   </script>
 </body>
 </html>
+
 
 
 
