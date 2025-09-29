@@ -50,6 +50,20 @@
       color: #aaa;
     }
 
+    #search-container {
+      text-align: center;
+      margin: 30px;
+    }
+
+    #search {
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      width: 80%;
+      max-width: 500px;
+    }
+
     #products-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -74,17 +88,6 @@
       transform: translateY(-10px);
       box-shadow: 0 20px 30px rgba(0,0,0,0.6);
       background: #34495e;
-    }
-
-    .product img {
-      border-radius: 10px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
-      width: 100%;
-    }
-
-    .product img:hover {
-      transform: scale(1.05);
     }
 
     .product h3 {
@@ -144,10 +147,20 @@
 
   <section id="hero"></section>
 
-  <div id="status">? Carregando produtos...</div>
+  <div id="search-container">
+    <input
+      type="text"
+      id="search"
+      placeholder="Buscar por nome ou descrição..."
+    />
+  </div>
+
+  <div id="status">🔎 Carregando produtos...</div>
   <div id="products-container"></div>
 
   <script>
+    let allProducts = [];
+
     async function loadProducts() {
       try {
         const response = await fetch('products.json');
@@ -159,6 +172,7 @@
           document.getElementById('status').textContent = 'Nenhum produto encontrado.';
           return;
         }
+        allProducts = products;
         document.getElementById('status').style.display = 'none';
         renderProducts(products);
       } catch (error) {
@@ -171,13 +185,26 @@
       const container = document.getElementById('products-container');
       container.innerHTML = products.map(p => `
         <div class="product">
-          ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}">` : ''}
           <h3>${p.nome}</h3>
           <p>${p.descricao}</p>
           <a href="${p.link}" target="_blank">Comprar</a>
         </div>
       `).join('');
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search');
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const term = searchInput.value.trim().toLowerCase();
+          const filtered = allProducts.filter(p =>
+            p.nome.toLowerCase().includes(term) ||
+            p.descricao.toLowerCase().includes(term)
+          );
+          renderProducts(filtered);
+        });
+      }
+    });
 
     loadProducts();
   </script>
