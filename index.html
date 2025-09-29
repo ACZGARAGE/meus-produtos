@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Meus Produtos</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -121,6 +121,23 @@
       transform: translateY(-3px);
     }
 
+    .copy-btn {
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: #2980b9;
+      transform: translateY(-2px);
+    }
+
     @media(max-width: 768px) {
       header h1 {
         font-size: 2.5rem;
@@ -183,13 +200,31 @@
 
     function renderProducts(products) {
       const container = document.getElementById('products-container');
-      container.innerHTML = products.map(p => `
+      container.innerHTML = products.map((p) => `
         <div class="product">
           <h3>${p.nome}</h3>
           <p>${p.descricao}</p>
           <a href="${p.link}" target="_blank">Comprar</a>
+          <button class="copy-btn" data-link="${p.link}" onclick="copyLink(event)">📋 Copiar link</button>
         </div>
       `).join('');
+    }
+
+    function copyLink(event) {
+      const button = event.currentTarget;
+      const link = button.getAttribute('data-link');
+      navigator.clipboard.writeText(link).then(() => {
+        const originalText = button.textContent;
+        button.textContent = '✅ Link copiado!';
+        button.disabled = true;
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 2000);
+      }).catch(err => {
+        console.error('Erro ao copiar o link:', err);
+        button.textContent = 'Erro ao copiar';
+      });
     }
 
     document.addEventListener('DOMContentLoaded', () => {
