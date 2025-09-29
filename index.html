@@ -91,11 +91,19 @@
       background: #34495e;
     }
 
+    /* imagem do produto + efeito de zoom + glow */
     .product img {
       width: 100%;
       height: auto;
       border-radius: 12px;
       margin-bottom: 15px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      object-fit: cover;
+    }
+
+    .product img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(243, 156, 18, 0.8); /* brilho alaranjado */
     }
 
     .product h3 {
@@ -254,6 +262,7 @@
   </script>
 </body>
 </html>
+
 
 
 
