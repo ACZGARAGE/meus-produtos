@@ -33,51 +33,14 @@
       background: url('https://github.com/ACZGARAGE/meus-produtos/raw/main/imagens/carro-dark.jpg') center/cover no-repeat;
       height: 450px;
       position: relative;
-      overflow: hidden;
     }
 
-    /* Farol direito piscando */
-    #headlight-right {
+    #hero::after {
+      content: '';
       position: absolute;
-      width: 120px;
-      height: 60px;
-      top: 150px;
-      left: 180px;
-      background: rgba(255, 255, 200, 0.8);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.8));
-      opacity: 0;
-      animation: blinkLight 2s infinite;
-      pointer-events: none;
-    }
-
-    /* Farol esquerdo piscando */
-    #headlight-left {
-      position: absolute;
-      width: 120px;
-      height: 60px;
-      top: 150px;
-      left: 520px;
-      background: rgba(255, 255, 200, 0.8);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      filter: drop-shadow(0 0 10px rgba(255, 255, 200, 0.8));
-      opacity: 0;
-      animation: blinkLightLeft 2.5s infinite;
-      pointer-events: none;
-    }
-
-    @keyframes blinkLight {
-      0%, 100% { opacity: 0; }
-      10%, 30% { opacity: 1; }
-      50%, 70% { opacity: 0; }
-      90% { opacity: 1; }
-    }
-
-    @keyframes blinkLightLeft {
-      0%, 100% { opacity: 0; }
-      20%, 40% { opacity: 1; }
-      60%, 80% { opacity: 0; }
-      95% { opacity: 1; }
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
     }
 
     #status {
@@ -199,10 +162,7 @@
     <h1>Meus Produtos</h1>
   </header>
 
-  <section id="hero">
-    <div id="headlight-right"></div>
-    <div id="headlight-left"></div>
-  </section>
+  <section id="hero"></section>
 
   <div id="search-container">
     <input
